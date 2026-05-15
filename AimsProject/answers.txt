@@ -1,0 +1,4 @@
+Question:
+- Is JAVA a Pass by Value or a Pass by Reference programming language?
+Java là ngôn ngữ Pass-by-Value (Truyền tham trị).
+Dù bạn đang làm việc với kiểu dữ liệu nguyên thủy (primitives) hay đối tượng (objects), Java luôn tạo ra một bản sao của giá trị để truyền vào phương thức.
