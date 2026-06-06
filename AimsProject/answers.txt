@@ -1,0 +1,9 @@
+1. Lớp nào nên implement interface Comparable?
+Lớp cha Media nên là lớp implement interface Comparable<Media>. Vì trong hệ thống, giỏ hàng đang lưu trữ một danh sách chung là ArrayList<Media>. Để phương thức Collections.sort() có thể hoạt động được trên danh sách này, các phần tử bên trong phải có khả năng so sánh được với nhau một cách tổng quát. Bằng cách implement ở lớp cha, tất cả các lớp con (Book, CompactDisc, DigitalVideoDisc) đều sẽ kế thừa đặc tính này.
+2. Cài đặt phương thức compareTo() như thế nào để phản ánh thứ tự mong muốn?
+Ghi đè (override) phương thức compareTo(Media other) trong lớp Media. 
+3. Chúng ta có thể có 2 luật sắp xếp (theo title rồi cost, và theo cost rồi title) nếu dùng Comparable không?
+Không vì interface Comparable chỉ cho phép định nghĩa một thứ tự sắp xếp mặc định duy nhất (gọi là natural ordering) cho lớp đó. Bạn chỉ có thể cài đặt duy nhất một hàm compareTo() trong lớp Media. Để hệ thống hỗ trợ nhiều cách sắp xếp linh hoạt khác nhau tại thời điểm chạy (lúc thì sort theo title, lúc thì sort theo cost), bạn bắt buộc phải sử dụng cách tiếp cận với Comparator giống như tài liệu Lab đã hướng dẫn.
+4. Giả sử DVD có luật xếp riêng (title -> decreasing length -> cost) thì sửa code như thế nào?
+Tận dụng tính Đa hình (Polymorphism) bằng cách ghi đè (override) phương thức compareTo() một lần nữa ngay bên trong lớp con DigitalVideoDisc.
+Logic sẽ là: Kiểm tra xem đối tượng truyền vào có phải là đĩa DVD không. Nếu phải, áp dụng luật riêng của DVD. Nếu không (tức là đang so sánh DVD với Sách hoặc CD), gọi ngược lại hàm so sánh mặc định của lớp cha Media.
