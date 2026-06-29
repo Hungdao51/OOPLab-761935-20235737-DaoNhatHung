@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefWidth="1024.0" prefHeight="768.0"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml">
+          
+
+    <top>
+        <VBox>
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu text="Options">
+                            <items>
+                                <MenuItem text="View store" onAction="#btnViewStorePressed"/>
+                                <Menu text="Update Store">
+                                    <items>
+                                        <MenuItem text="Add Book"/>
+                                        <MenuItem text="Add CD"/>
+                                        <MenuItem text="Add DVD"/>
+                                    </items>
+                                </Menu>
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+
+                <Label text="CART" style="-fx-font-size: 50px; -fx-text-fill: aqua;">
+                    <padding>
+                        <Insets left="10"/>
+                    </padding>
+                </Label>
+            </children>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets left="10" top="10" right="10" bottom="10"/>
+            </padding>
+
+            <children>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <children>
+                        <Label text="Filter:"/>
+                        <TextField fx:id="tfFilter"/>
+                        <RadioButton fx:id="radioBtnFilterId" text="By ID" selected="true">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="filterCategory"/>
+                            </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="radioBtnFilterTitle" text="By Title" toggleGroup="$filterCategory"/>
+                    </children>
+                </HBox>
+
+                <TableView fx:id="tblMedia">
+                    <columns>
+                        <TableColumn fx:id="colMediaTitle" text="Title"/>
+                        <TableColumn fx:id="colMediaCategory" text="Category"/>
+                        <TableColumn fx:id="colMediaCost" text="Cost"/>
+                    </columns>
+                </TableView>
+
+                <ButtonBar>
+                    <buttons>
+                        <Button fx:id="btnPlay" text="Play" onAction="#btnPlayPressed"/>
+                        <Button fx:id="btnRemove" text="Remove" onAction="#btnRemovePressed"/>
+                    </buttons>
+                </ButtonBar>
+            </children>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox spacing="20" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="50" left="20" right="20"/>
+            </padding>
+
+            <children>
+                <HBox spacing="10" alignment="CENTER">
+                    <children>
+                        <Label text="Total:" style="-fx-font-size: 24px;"/>
+                        <Label fx:id="lblTotalCost" text="0 $" style="-fx-font-size: 24px; -fx-text-fill: aqua;"/>
+                    </children>
+                </HBox>
+
+                <Button text="Place Order"
+                        onAction="#btnPlaceOrderPressed"
+                        style="-fx-font-size: 24px; -fx-text-fill: white; -fx-background-color: red;"/>
+            </children>
+        </VBox>
+    </right>
+
+</BorderPane>

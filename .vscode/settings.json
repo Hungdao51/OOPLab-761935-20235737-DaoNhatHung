@@ -1,0 +1,11 @@
+{
+    "java.project.sourcePaths": [
+        "AimsProject/src",
+        "GUIProject/src"
+    ],
+    "java.project.referencedLibraries": [
+        "AimsProject/lib/**/*.jar",
+        "GUIProject/lib/**/*.jar"
+    ],
+    "java.debug.settings.vmArgs": "--module-path \"${workspaceFolder}/AimsProject/lib\" --add-modules javafx.controls,javafx.fxml,javafx.swing"
+}

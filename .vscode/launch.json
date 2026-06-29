@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "AimsGUI",
+            "request": "launch",
+            "mainClass": "hust.soict.hedspi.aims.AimsGUI",
+            "projectName": "TH_OOP_20252_TrinhNgocHoangNam_85027fb0",
+            "vmArgs": "--module-path \"${workspaceFolder}/AimsProject/lib\" --add-modules javafx.controls,javafx.fxml,javafx.swing"
+        },
+        {
+            "type": "java",
+            "name": "Aims",
+            "request": "launch",
+            "mainClass": "hust.soict.hedspi.aims.Aims",
+            "projectName": "TH_OOP_20252_TrinhNgocHoangNam_85027fb0"
+        },
+        {
+            "type": "java",
+            "name": "Run Painter",
+            "request": "launch",
+            "mainClass": "hust.soict.hedspi.javafx.Painter",
+            "vmArgs": "--module-path \"${workspaceFolder}/AimsProject/lib\" --add-modules javafx.controls,javafx.fxml,javafx.swing"
+        }
+    ]
+}
